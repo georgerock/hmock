@@ -20,11 +20,8 @@ extra-source-files:
 description:         Please see the README on GitHub at <https://github.com/githubuser/azupdate#readme>
 
 dependencies:
-- aeson
-- aeson-casing
 - amazonka
 - amazonka-core
-- lens
 - base >= 4.7 && < 5
 
 library:
@@ -35,19 +32,31 @@ executables:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
+    - -j4
+    - -O2
+    - -fwrite-ide-info
+    - -hiedir=.hie
     - -threaded
+    - -static
     - -rtsopts
     - -with-rtsopts=-N
+    - -Wall
     dependencies:
     - azupdate
 
 tests:
   azupdate-test:
     main:                Spec.hs
-    source-dirs:         test
+    source-dirs:         
+      - test
+      - src
     ghc-options:
+    - -j4
+    - -O2
+    - -static
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -Wall
     dependencies:
     - azupdate

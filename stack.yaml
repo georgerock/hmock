@@ -40,8 +40,16 @@ extra-deps:
   subdirs:
     - lib/amazonka
     - lib/amazonka-core
+    - lib/services/amazonka-sts
+    - lib/services/amazonka-sso
 - aeson-2.0.3.0
 - lens-5.1.1
+- OneTuple-0.3.1
+- attoparsec-0.14.4
+- hashable-1.4.0.2
+- semialign-1.2.0.1
+- text-short-0.1.5
+- time-compat-1.9.6.1
 #
 # extra-deps: []
 

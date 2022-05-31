@@ -31,6 +31,32 @@ packages:
     subdir: lib/amazonka-core
     url: https://github.com/brendanhay/amazonka/archive/27322ea0db68712e1c331be4124080144c975750.tar.gz
 - completed:
+    size: 27778677
+    subdir: lib/services/amazonka-sts
+    url: https://github.com/brendanhay/amazonka/archive/27322ea0db68712e1c331be4124080144c975750.tar.gz
+    name: amazonka-sts
+    version: '2.0'
+    sha256: 0c88f2936a0b83db4844b5755d3afecfd91fa459adeb2aa5ab7893aca33a3f66
+    pantry-tree:
+      size: 2932
+      sha256: 64ed22eaaea868b32cf56f162d1bd7332b048d8f2ea073c4e9827ed08e71cc70
+  original:
+    subdir: lib/services/amazonka-sts
+    url: https://github.com/brendanhay/amazonka/archive/27322ea0db68712e1c331be4124080144c975750.tar.gz
+- completed:
+    size: 27778677
+    subdir: lib/services/amazonka-sso
+    url: https://github.com/brendanhay/amazonka/archive/27322ea0db68712e1c331be4124080144c975750.tar.gz
+    name: amazonka-sso
+    version: '2.0'
+    sha256: 0c88f2936a0b83db4844b5755d3afecfd91fa459adeb2aa5ab7893aca33a3f66
+    pantry-tree:
+      size: 1869
+      sha256: f11babeeaf0481ae68134ced86e9d1d9396d1beb7bd70e0a1e6b77bc4148a192
+  original:
+    subdir: lib/services/amazonka-sso
+    url: https://github.com/brendanhay/amazonka/archive/27322ea0db68712e1c331be4124080144c975750.tar.gz
+- completed:
     hackage: aeson-2.0.3.0@sha256:130bda8e10dc6dd159b79b306abb10025d7f8b5d9cbc2f7d6d7e6768a0272058,5845
     pantry-tree:
       size: 38191
@@ -44,6 +70,48 @@ packages:
       sha256: 501be2d21ecc9629673b549a62424d9e408190580a24d2a17bc5ca121f1649e6
   original:
     hackage: lens-5.1.1
+- completed:
+    hackage: OneTuple-0.3.1@sha256:a848c096c9d29e82ffdd30a9998aa2931cbccb3a1bc137539d80f6174d31603e,2262
+    pantry-tree:
+      size: 506
+      sha256: a685b08622f1fe0641e4f228a290878a1db4f7ef3eb63d00b10e8632097d1e6f
+  original:
+    hackage: OneTuple-0.3.1
+- completed:
+    hackage: attoparsec-0.14.4@sha256:79584bdada8b730cb5138fca8c35c76fbef75fc1d1e01e6b1d815a5ee9843191,5810
+    pantry-tree:
+      size: 5039
+      sha256: 5b8e087f73d334019252606b1f64b986cef61946a085ccb77c6bc4d038691c48
+  original:
+    hackage: attoparsec-0.14.4
+- completed:
+    hackage: hashable-1.4.0.2@sha256:0cddd0229d1aac305ea0404409c0bbfab81f075817bd74b8b2929eff58333e55,5005
+    pantry-tree:
+      size: 1248
+      sha256: 51dda0aa70849588d074125f324beba1c8736cfa486e7f4a90a798b1d0e6019d
+  original:
+    hackage: hashable-1.4.0.2
+- completed:
+    hackage: semialign-1.2.0.1@sha256:0e179b4d3a8eff79001d374d6c91917c6221696b9620f0a4d86852fc6a9b9501,2836
+    pantry-tree:
+      size: 537
+      sha256: 635bbbb517f0c063a4bc2e9e6efdb0e598b9d9fd467f52df81ab3a4af1fd923b
+  original:
+    hackage: semialign-1.2.0.1
+- completed:
+    hackage: text-short-0.1.5@sha256:962c6228555debdc46f758d0317dea16e5240d01419b42966674b08a5c3d8fa6,3498
+    pantry-tree:
+      size: 727
+      sha256: 1fc6561c4acb94a41e58cd8f8c7cce161c18c5629dac63a54a9c62f9c778c52b
+  original:
+    hackage: text-short-0.1.5
+- completed:
+    hackage: time-compat-1.9.6.1@sha256:42d8f2e08e965e1718917d54ad69e1d06bd4b87d66c41dc7410f59313dba4ed1,5033
+    pantry-tree:
+      size: 4113
+      sha256: b262c5ae8d72d2073d12e1de1863abd234fad8c138df28f32bb51bc232ced608
+  original:
+    hackage: time-compat-1.9.6.1
 snapshots:
 - completed:
     size: 590102
