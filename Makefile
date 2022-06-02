@@ -9,3 +9,6 @@ format:
 
 clean:
 	@stack clean
+
+repl:
+	@stack repl
