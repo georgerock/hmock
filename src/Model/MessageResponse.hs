@@ -1,4 +1,4 @@
-module Model where
+module Model.MessageResponse where
 
 import Control.Lens (makeLenses, makePrisms)
 import Data.Aeson
@@ -37,22 +37,22 @@ instance FromJSON ErrorResponse where
 
 $(makeLenses ''ErrorResponse)
 
-data Message
+data MessageResponse
   = Gen GenericResponse
   | Err ErrorResponse
   deriving (Generic, Eq, Show)
 
-$(makePrisms ''Message)
+$(makePrisms ''MessageResponse)
 
-instance ToJSON Message where
+instance ToJSON MessageResponse where
   toJSON (Gen m) = toJSON m
   toJSON (Err e) = toJSON e
 
-instance FromJSON Message where
+instance FromJSON MessageResponse where
   parseJSON o@(Object v) = do
     tag <- v .: "tag" :: Parser Text
     case tag of
       "GenericResponse" -> Gen <$> parseJSON o
       "ErrorResponse" -> Err <$> parseJSON o
-      _ -> fail "No matching message"
+      _ -> fail "No matching MessageResponse"
   parseJSON _ = fail "Invalid json datatype"

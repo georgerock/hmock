@@ -26,7 +26,8 @@ source-repository head
 library
   exposed-modules:
       Lib
-      Model
+      Model.Message
+      Model.MessageResponse
   other-modules:
       Paths_azupdate
   hs-source-dirs:
@@ -41,6 +42,7 @@ library
       DeriveGeneric
   build-depends:
       aeson
+    , aeson-casing
     , amazonka
     , amazonka-core
     , base >=4.7 && <5
@@ -66,6 +68,7 @@ executable azupdate-exe
   ghc-options: -j4 -O2 -fwrite-ide-info -hiedir=.hie -threaded -static -rtsopts -with-rtsopts=-N -Wall
   build-depends:
       aeson
+    , aeson-casing
     , amazonka
     , amazonka-core
     , azupdate
@@ -80,7 +83,8 @@ test-suite azupdate-test
   main-is: Spec.hs
   other-modules:
       Lib
-      Model
+      Model.Message
+      Model.MessageResponse
       Paths_azupdate
   hs-source-dirs:
       test
@@ -96,6 +100,7 @@ test-suite azupdate-test
   ghc-options: -j4 -O2 -static -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
       aeson
+    , aeson-casing
     , amazonka
     , amazonka-core
     , azupdate
