@@ -1,6 +1,10 @@
 module Lib
-    ( someFunc
-    ) where
+  ( handler
+  ) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+import AWS.Lambda.Context (LambdaContext)
+import AWS.Lambda.Events.SQS (SQSEvent)
+import Model (Message)
+
+handler :: LambdaContext -> SQSEvent -> IO (Either String Message)
+handler = undefined

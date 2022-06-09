@@ -1,6 +1,7 @@
 module Main where
 
-import Lib
+import AWS.Lambda.Runtime (ioRuntimeWithContext)
+import Lib (handler)
 
 main :: IO ()
-main = someFunc
+main = ioRuntimeWithContext handler

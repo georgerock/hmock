@@ -26,14 +26,27 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Model
   other-modules:
       Paths_azupdate
   hs-source-dirs:
       src
+  default-extensions:
+      TemplateHaskell
+      RecordWildCards
+      NamedFieldPuns
+      ViewPatterns
+      OverloadedLists
+      OverloadedStrings
+      DeriveGeneric
   build-depends:
-      amazonka
+      aeson
+    , amazonka
     , amazonka-core
     , base >=4.7 && <5
+    , hal
+    , lens
+    , text
   default-language: Haskell2010
 
 executable azupdate-exe
@@ -42,12 +55,24 @@ executable azupdate-exe
       Paths_azupdate
   hs-source-dirs:
       app
+  default-extensions:
+      TemplateHaskell
+      RecordWildCards
+      NamedFieldPuns
+      ViewPatterns
+      OverloadedLists
+      OverloadedStrings
+      DeriveGeneric
   ghc-options: -j4 -O2 -fwrite-ide-info -hiedir=.hie -threaded -static -rtsopts -with-rtsopts=-N -Wall
   build-depends:
-      amazonka
+      aeson
+    , amazonka
     , amazonka-core
     , azupdate
     , base >=4.7 && <5
+    , hal
+    , lens
+    , text
   default-language: Haskell2010
 
 test-suite azupdate-test
@@ -55,14 +80,27 @@ test-suite azupdate-test
   main-is: Spec.hs
   other-modules:
       Lib
+      Model
       Paths_azupdate
   hs-source-dirs:
       test
       src
+  default-extensions:
+      TemplateHaskell
+      RecordWildCards
+      NamedFieldPuns
+      ViewPatterns
+      OverloadedLists
+      OverloadedStrings
+      DeriveGeneric
   ghc-options: -j4 -O2 -static -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
-      amazonka
+      aeson
+    , amazonka
     , amazonka-core
     , azupdate
     , base >=4.7 && <5
+    , hal
+    , lens
+    , text
   default-language: Haskell2010

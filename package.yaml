@@ -22,6 +22,10 @@ description:         Please see the README on GitHub at <https://github.com/gith
 dependencies:
 - amazonka
 - amazonka-core
+- hal
+- lens
+- text
+- aeson
 - base >= 4.7 && < 5
 
 library:
@@ -60,3 +64,12 @@ tests:
     - -Wall
     dependencies:
     - azupdate
+
+default-extensions:
+  - TemplateHaskell
+  - RecordWildCards
+  - NamedFieldPuns
+  - ViewPatterns
+  - OverloadedLists
+  - OverloadedStrings
+  - DeriveGeneric
