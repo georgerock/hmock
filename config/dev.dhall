@@ -1,5 +1,5 @@
-let AppEnv=./.env.dhall
+let AppEnv=./env.dhall
 let conf=./types.dhall
-let testEnv = assert: (env: APP_ENV as Text) === "dev"
+let testEnv = assert: (env:APP_ENV as Text) === "dev"
 in
-  confog AppEnv.dev
+  conf AppEnv.dev

@@ -49,7 +49,7 @@ executables:
     - -with-rtsopts=-N
     - -Wall
     cc-options: -static
-    ld-options: -static -pthread
+    ld-options: -pthread
     dependencies:
     - azupdate
 

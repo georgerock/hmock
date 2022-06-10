@@ -73,7 +73,7 @@ executable azupdate
       DeriveAnyClass
   ghc-options: -j4 -O2 -fwrite-ide-info -hiedir=.hie -threaded -static -rtsopts -with-rtsopts=-N -Wall
   cc-options: -static
-  ld-options: -static -pthread
+  ld-options: -pthread
   build-depends:
       aeson
     , aeson-casing

@@ -1,6 +1,6 @@
 let Zone = <Central: Text | West: Text>
 
-let RegionConfig = < Local: {host: Text, Port: Natural, zone: Zone} | AWSZone: Zone>
+let RegionConfig = < Local: {host: Text, port: Natural, zone: Zone} | AWSZone: Zone>
 
 let S3Config = < S3CfgLocal: RegionConfig | S3CfgTest: RegionConfig | S3CfgRepl: RegionConfig | S3CfgDev: RegionConfig >
 
@@ -19,9 +19,10 @@ let AppEnv = ./env.dhall
 let getBaseConfig: AppEnv -> BaseConfig = \(e: AppEnv) ->
   
   let apiUrl = env:TEST_API_URL as Text
+  let aEnv = env:APP_ENV as Text
 
   in
-    { appEnv = e
+    { appEnv = aEnv
     , testApiUrl = apiUrl
     }
 
@@ -29,6 +30,9 @@ let getConfig: AppEnv -> AppConfig = \(e: AppEnv) ->
   
   let regName = "eu-central-1"
   let reg = Zone.Central regName
+
+  let lsHostname = env:LOCALSTACK_HOSTNAME as Text
+  ? "localhost"
 
   let localS3Cfg = RegionConfig.Local { host = lsHostname, port = 4566, zone = reg }
   let devS3Cfg = RegionConfig.AWSZone reg
