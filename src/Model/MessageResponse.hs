@@ -2,25 +2,28 @@ module Model.MessageResponse where
 
 import Control.Lens (makeLenses, makePrisms)
 import Data.Aeson
+import Data.Aeson.Casing (camelCase)
 import Data.Aeson.Types
 import Data.Text (Text)
 import GHC.Generics (Generic)
 
 data GenericResponse =
   GenericResponse
-    { _field :: String
-    , _otherField :: Integer
-    , _anotherField :: Bool
+    { _grResponse :: Text
+    , _grOtherField :: Integer
+    , _grAnotherField :: Bool
     }
   deriving (Generic, Eq, Show)
 
 $(makeLenses ''GenericResponse)
 
 instance ToJSON GenericResponse where
-  toJSON = genericToJSON $ defaultOptions {fieldLabelModifier = drop 1}
+  toJSON =
+    genericToJSON $ defaultOptions {fieldLabelModifier = camelCase . drop 3}
 
 instance FromJSON GenericResponse where
-  parseJSON = genericParseJSON $ defaultOptions {fieldLabelModifier = drop 1}
+  parseJSON =
+    genericParseJSON $ defaultOptions {fieldLabelModifier = camelCase . drop 3}
 
 data ErrorResponse =
   ErrorResponse

@@ -33,7 +33,7 @@ library:
   source-dirs: src
 
 executables:
-  azupdate-exe:
+  azupdate:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -46,6 +46,8 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     - -Wall
+    cc-options: -static
+    ld-options: -static -pthread
     dependencies:
     - azupdate
 

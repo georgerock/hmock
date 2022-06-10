@@ -8,7 +8,7 @@ import GHC.Generics (Generic)
 
 data GenericMessage =
   GenericMessage
-    { _fmField :: Text
+    { _gmName :: Text
     , _gmOtherField :: Integer
     , _gmAnotherField :: Bool
     }

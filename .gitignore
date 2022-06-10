@@ -1,4 +1,6 @@
 .stack-work/
 .hie/
 .vscode/
+.env
+.build/
 *~

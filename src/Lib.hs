@@ -4,7 +4,10 @@ module Lib
 
 import AWS.Lambda.Context (LambdaContext)
 import AWS.Lambda.Events.SQS (SQSEvent)
-import Model.MessageResponse (MessageResponse)
+import Model.Message
+import Model.MessageResponse
 
-handler :: LambdaContext -> SQSEvent -> IO (Either String MessageResponse)
-handler = undefined
+handler :: LambdaContext -> Message -> IO MessageResponse
+handler _ (Message GenericMessage {..}) =
+  return . Gen $
+  GenericResponse ("Hello " <> _gmName <> "!") _gmOtherField _gmAnotherField
