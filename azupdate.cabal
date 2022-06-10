@@ -26,6 +26,8 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Lib.Config
+      Lib.Error
       Model.Message
       Model.MessageResponse
   other-modules:
@@ -40,12 +42,15 @@ library
       OverloadedLists
       OverloadedStrings
       DeriveGeneric
+      DeriveAnyClass
   build-depends:
       aeson
     , aeson-casing
     , amazonka
     , amazonka-core
     , base >=4.7 && <5
+    , dhall
+    , fast-logger
     , hal
     , lens
     , text
@@ -65,6 +70,7 @@ executable azupdate
       OverloadedLists
       OverloadedStrings
       DeriveGeneric
+      DeriveAnyClass
   ghc-options: -j4 -O2 -fwrite-ide-info -hiedir=.hie -threaded -static -rtsopts -with-rtsopts=-N -Wall
   cc-options: -static
   ld-options: -static -pthread
@@ -75,6 +81,8 @@ executable azupdate
     , amazonka-core
     , azupdate
     , base >=4.7 && <5
+    , dhall
+    , fast-logger
     , hal
     , lens
     , text
@@ -85,6 +93,8 @@ test-suite azupdate-test
   main-is: Spec.hs
   other-modules:
       Lib
+      Lib.Config
+      Lib.Error
       Model.Message
       Model.MessageResponse
       Paths_azupdate
@@ -99,6 +109,7 @@ test-suite azupdate-test
       OverloadedLists
       OverloadedStrings
       DeriveGeneric
+      DeriveAnyClass
   ghc-options: -j4 -O2 -static -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
       aeson
@@ -107,6 +118,8 @@ test-suite azupdate-test
     , amazonka-core
     , azupdate
     , base >=4.7 && <5
+    , dhall
+    , fast-logger
     , hal
     , lens
     , text

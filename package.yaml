@@ -23,6 +23,8 @@ dependencies:
 - amazonka
 - amazonka-core
 - hal
+- dhall
+- fast-logger
 - lens
 - text
 - aeson
@@ -76,3 +78,4 @@ default-extensions:
   - OverloadedLists
   - OverloadedStrings
   - DeriveGeneric
+  - DeriveAnyClass

@@ -3,11 +3,11 @@ module Lib
   ) where
 
 import AWS.Lambda.Context (LambdaContext)
-import AWS.Lambda.Events.SQS (SQSEvent)
+import Lib.Config
 import Model.Message
 import Model.MessageResponse
 
 handler :: LambdaContext -> Message -> IO MessageResponse
-handler _ (Message GenericMessage {..}) =
-  return . Gen $
-  GenericResponse ("Hello " <> _gmName <> "!") _gmOtherField _gmAnotherField
+handler _ (Message GenericMessage {..}) = do
+  AppConfig {baseConfig = BaseConfig {appEnv}} <- loadConfig :: IO AppConfig
+  return . Gen $ GenericResponse (_gmName <> " " <> appEnv) 42 _gmAnotherField
