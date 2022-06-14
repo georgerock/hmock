@@ -27,7 +27,8 @@ build: test_env_vars
 	@stack build --docker --no-docker-set-user $(DOCKER_ENV_ARGS) --verbosity info
 	@mkdir -p $(BUILD_DIR)/$(LAMBDA_FUNCTION)/config
 	@cp $(STACK_INSTALL)/bin/$(LAMBDA_FUNCTION) $(BUILD_DIR)/$(LAMBDA_FUNCTION)/bootstrap
-	@cd $(BUILD_DIR)/$(LAMBDA_FUNCTION) && zip -q ../$(LAMBDA_FUNCTION).zip bootstrap
+	@cp config/*.dhall $(BUILD_DIR)/$(LAMBDA_FUNCTION)/config
+	@cd $(BUILD_DIR)/$(LAMBDA_FUNCTION) && zip -q ../$(LAMBDA_FUNCTION).zip config/*.dhall bootstrap
 
 format:
 	@find . -path ./.stack-work -prune -o -type f -name "*.hs" \! -regex "^\.stack" -exec hindent {} \;
