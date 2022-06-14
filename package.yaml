@@ -49,9 +49,12 @@ executables:
     - -with-rtsopts=-N
     - -Wall
     cc-options: -static
-    ld-options: -pthread
+    ld-options: -static -pthread 
     dependencies:
     - azupdate
+    when:
+    - condition: false
+      other-modules: Paths_azupdate
 
 tests:
   azupdate-test:

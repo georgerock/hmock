@@ -58,8 +58,6 @@ library
 
 executable azupdate
   main-is: Main.hs
-  other-modules:
-      Paths_azupdate
   hs-source-dirs:
       app
   default-extensions:
@@ -73,7 +71,7 @@ executable azupdate
       DeriveAnyClass
   ghc-options: -j4 -O2 -fwrite-ide-info -hiedir=.hie -threaded -static -rtsopts -with-rtsopts=-N -Wall
   cc-options: -static
-  ld-options: -pthread
+  ld-options: -static -pthread
   build-depends:
       aeson
     , aeson-casing
