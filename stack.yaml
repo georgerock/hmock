@@ -50,6 +50,8 @@ extra-deps:
 - semialign-1.2.0.1
 - text-short-0.1.5
 - time-compat-1.9.6.1
+- dhall-1.41.1
+- hal-1.0.0
 #
 # extra-deps: []
 

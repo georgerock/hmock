@@ -2,21 +2,14 @@ name:                azupdate
 version:             0.1.0.0
 github:              "githubuser/azupdate"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2022 Author name here"
+author:              "Cosma George"
+maintainer:          "george@whitecitycode.com"
+copyright:           "2022 WhiteCity Code"
 
 extra-source-files:
 - README.md
 - ChangeLog.md
 
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
 description:         Please see the README on GitHub at <https://github.com/githubuser/azupdate#readme>
 
 dependencies:
@@ -49,7 +42,9 @@ executables:
     - -with-rtsopts=-N
     - -Wall
     cc-options: -static
-    ld-options: -static -pthread 
+    ld-options: 
+      - -static 
+      - -pthread
     dependencies:
     - azupdate
     when:

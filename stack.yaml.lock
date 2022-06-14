@@ -112,6 +112,20 @@ packages:
       sha256: b262c5ae8d72d2073d12e1de1863abd234fad8c138df28f32bb51bc232ced608
   original:
     hackage: time-compat-1.9.6.1
+- completed:
+    hackage: dhall-1.41.1@sha256:51aa2825a19aa00c383c2b1e3d85aafb1ca2fc47a0c4375cce2cddf0fc748fa6,15940
+    pantry-tree:
+      size: 336152
+      sha256: f9c8be990f9a17d4af67367e2aad22f168397c2f467890da79acabab6343ed35
+  original:
+    hackage: dhall-1.41.1
+- completed:
+    hackage: hal-1.0.0@sha256:4dafc295252287488bf8ab5141e4dc4a2dd2afdd44bc4925e4b47ebb87861232,4811
+    pantry-tree:
+      size: 2449
+      sha256: 7369c95ef4e8e2d5d9c004117d06968a1b1e06d646c1c28deed1dbe0057be8f2
+  original:
+    hackage: hal-1.0.0
 snapshots:
 - completed:
     size: 590102

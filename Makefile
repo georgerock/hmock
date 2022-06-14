@@ -1,5 +1,5 @@
 BASE_DIR := $(shell realpath .)
-STACK_INSTALL := $(shell stack path --local-install-root)
+STACK_INSTALL := $(shell stack --docker --no-docker-set-user path --local-install-root)
 BUILD_DIR := $(BASE_DIR)/.build
 LAMBDA_FUNCTION := azupdate
 
@@ -9,6 +9,7 @@ $(error ".env file not found")
 endif
 include $(ENV_FILE)
 export $(shell sed 's/=.*//' $(ENV_FILE))
+DOCKER_ENV_ARGS := $(shell while read line; do echo --docker-env="'"$$line"'"; done < $(ENV_FILE))
 
 test_env_vars:
 	@test -n "$$APP_ENV" || (echo "Missing APP_ENV" && exit 1)
@@ -23,7 +24,7 @@ build: test_env_vars
 	@hlint .
 	@find . -path ./.stack-work -prune -o -type f -name "*.hs" \! -regex "^\.stack" -exec hindent --validate {} \;
 	@echo Building function code
-	@stack build --verbosity info
+	@stack build --docker --no-docker-set-user $(DOCKER_ENV_ARGS) --verbosity info
 	@mkdir -p $(BUILD_DIR)/$(LAMBDA_FUNCTION)/config
 	@cp $(STACK_INSTALL)/bin/$(LAMBDA_FUNCTION) $(BUILD_DIR)/$(LAMBDA_FUNCTION)/bootstrap
 	@cd $(BUILD_DIR)/$(LAMBDA_FUNCTION) && zip -q ../$(LAMBDA_FUNCTION).zip bootstrap
